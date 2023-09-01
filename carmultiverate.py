@@ -1,0 +1,9 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn  as sns
+data=pd.read_csv("C:/Users/SPTINT-13/Desktop/dataset/cardataset.csv")[:5]
+print(data)
+sns.catplot(x='color',hue='brand',col='model',data=data,kind='count')
+sns.catplot(x='color',hue='model',col='brand',data=data,kind='count')
+
