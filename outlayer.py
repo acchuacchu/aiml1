@@ -1,11 +1,28 @@
 import pandas as pd
+import seaborn  as sns
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-
 data=pd.read_csv("C:/Users/SPTINT-13/Desktop/dataset/tatanic 1.csv")
 print(data)
-df=data.isna().sum()
+print(data.info())
+print(data.isnull().sum())
+print(data.isna().sum())
+sns.heatmap(data.isna())
+print(data.shape)
+print(data.dropna(inplace=True))
+print(data.shape)
+df=data.drop(['Cabin'],axis=1)
+print(df)
+print(data.shape)
+sns.heatmap(data.isna())
+print(" \n descride \n ",data.describe())
+d=data['Age'].mean()
+print(d)
+print(data['Age'].fillna(d,inplace=True))
+e=data['Age'].median()
+print(e)
+print(data.isna().sum())
+print(data['Embarked'].fillna(data['Embarked'].mode()[0]))
+print(data.isna().sum())
 print(data['Age'].fillna(df,inplace=True))
 sns.boxplot(data['Age'])
 Q1=data['Age'].quantile(0.25)
@@ -27,3 +44,5 @@ index=data[ind].index
 print(index)
 data.drop(index,inplace=True)
 sns.boxplot(data['Age'])
+
+
